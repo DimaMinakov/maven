@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: maven-dep
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: maven
+  template: 
+    metadata:
+      labels:
+        component: maven
+    spec:
+
+      
+      hostAliases:
+      - ip: "127.0.0.1"
+        hostnames:
+        - "serv"
+
+      - ip: "10.76.0.2"
+        hostnames:
+        - "serv"
+   
+      containers:
+      - name: serv
+        image: kolega123/serv
+
+        ports:
+        - containerPort: 25000
+            
+      - name: client
+        image: kolega123/client
+        ports:
+        - containerPort: 25000
