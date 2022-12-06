@@ -1,0 +1,13 @@
+services:
+ maven:
+  build:
+   context: .
+   dockerfile: Dockerfile
+  stdin_open: true # docker run -i
+  tty: true 
+ # volumes:
+  # - maven-vol:/home/vm1/maven/my-app1/service
+
+#volumes:
+ #maven-vol
+  #external: true

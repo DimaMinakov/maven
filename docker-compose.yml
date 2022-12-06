@@ -1,0 +1,19 @@
+version: "3"
+services:
+ serv:
+  image: my_local_maven10:3.5.2-jdk-8
+  ports: 
+   - 25000:25000
+  stdin_open: true # docker run -i
+  tty: true 
+ client:
+  image: my_local_maven12:3.5.2-jdk-8
+  
+  depends_on:
+   - serv
+ # volumes:
+  # - maven-vol:/home/vm1/maven/my-app1/service
+
+#volumes:
+ #maven-vol
+  #external: true
